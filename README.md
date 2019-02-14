@@ -136,7 +136,7 @@ You should see something like this:
 
 As you can see, the logs show the results of the execution of `my_task.sh`
 
-**7. How else can I use `cf tasks`**
+**7. How else can I use `cf tasks`?**
 
 Take a look at the example below:
 
