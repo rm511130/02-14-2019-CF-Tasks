@@ -79,7 +79,7 @@ vcap@af0fe8a0:~$ exit
 
 As you can see, the contents of the `/tasks` folder can be found in the container that is running the Chess App.
 
-**4. Let's run `cf tasks` **
+**4. Let's run `cf tasks`**
 
 Back to your CF CLI command prompt, execute the following command:
 
@@ -94,7 +94,7 @@ task name:   job_example
 task id:     1
 ```
 
-**5. What happened? Let's check **
+**5. What happened? Let's check**
 
 ```
 $ cf tasks chess
@@ -105,27 +105,33 @@ id   name          state       start time                      command
 1    job_example   SUCCEEDED   Thu, 14 Feb 2019 14:58:41 UTC   /home/vcap/app/htdocs/tasks/my_task.sh
 ```
 
-**6. Where's the output? **
+**6. Where's the output?**
 
 ```
-   2019-02-14T09:58:42.73-0500 [CELL/0] OUT Cell 11c6701a-565d-47d9-a5b1-4fd0b656c5db successfully created container for instance 39c17cc8-961e-4168-87aa-4fc4ee61f868
-   2019-02-14T09:58:52.53-0500 [APP/TASK/job_example/0] OUT Executing the MY_TASK shell script
-   2019-02-14T09:58:52.53-0500 [APP/TASK/job_example/0] OUT Thu Feb 14 14:58:52 UTC 2019
-   2019-02-14T09:58:52.53-0500 [APP/TASK/job_example/0] OUT /home/vcap/app
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT Filesystem      Size  Used Avail Use% Mounted on
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT overlay         1.0G  221M  804M  22% /
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT tmpfs           7.9G     0  7.9G   0% /dev/shm
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT /dev/sdb2       111G   21G   85G  20% /tmp/garden-init
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT tmpfs           7.9G     0  7.9G   0% /sys/fs/cgroup
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT tmpfs           2.8M  104K  2.7M   4% /etc/cf-instance-credentials
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT udev            7.9G     0  7.9G   0% /dev/tty
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT tmpfs           7.9G     0  7.9G   0% /proc/scsi
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT tmpfs           7.9G     0  7.9G   0% /sys/firmware
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT End of MY_TASK shell script
-   2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT Exit status 0
-   2019-02-14T09:58:53.22-0500 [CELL/0] OUT Cell 11c6701a-565d-47d9-a5b1-4fd0b656c5db stopping instance 39c17cc8-961e-4168-87aa-4fc4ee61f868
-   2019-02-14T09:58:53.22-0500 [CELL/0] OUT Cell 11c6701a-565d-47d9-a5b1-4fd0b656c5db destroying container for instance 39c17cc8-961e-4168-87aa-4fc4ee61f868
-   2019-02-14T09:58:54.71-0500 [CELL/0] OUT Cell 11c6701a-565d-47d9-a5b1-4fd0b656c5db successfully destroyed container for instance 39c17cc8-961e-4168-87aa-4fc4ee61f868
+$ cf logs chess --recent
+```
+
+You should see something like this:
+
+```
+2019-02-14T09:58:42.73-0500 [CELL/0] OUT Cell 11c6701a-565d-47d9-a5b1-4fd0b656c5db successfully created container for instance 39c17cc8-961e-4168-87aa-4fc4ee61f868
+2019-02-14T09:58:52.53-0500 [APP/TASK/job_example/0] OUT Executing the MY_TASK shell script
+2019-02-14T09:58:52.53-0500 [APP/TASK/job_example/0] OUT Thu Feb 14 14:58:52 UTC 2019
+2019-02-14T09:58:52.53-0500 [APP/TASK/job_example/0] OUT /home/vcap/app
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT Filesystem      Size  Used Avail Use% Mounted on
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT overlay         1.0G  221M  804M  22% /
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT tmpfs           7.9G     0  7.9G   0% /dev/shm
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT /dev/sdb2       111G   21G   85G  20% /tmp/garden-init
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT tmpfs           7.9G     0  7.9G   0% /sys/fs/cgroup
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT tmpfs           2.8M  104K  2.7M   4% /etc/cf-instance-credentials
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT udev            7.9G     0  7.9G   0% /dev/tty
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT tmpfs           7.9G     0  7.9G   0% /proc/scsi
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT tmpfs           7.9G     0  7.9G   0% /sys/firmware
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT End of MY_TASK shell script
+2019-02-14T09:58:52.54-0500 [APP/TASK/job_example/0] OUT Exit status 0
+2019-02-14T09:58:53.22-0500 [CELL/0] OUT Cell 11c6701a-565d-47d9-a5b1-4fd0b656c5db stopping instance 39c17cc8-961e-4168-87aa-4fc4ee61f868
+2019-02-14T09:58:53.22-0500 [CELL/0] OUT Cell 11c6701a-565d-47d9-a5b1-4fd0b656c5db destroying container for instance 39c17cc8-961e-4168-87aa-4fc4ee61f868
+2019-02-14T09:58:54.71-0500 [CELL/0] OUT Cell 11c6701a-565d-47d9-a5b1-4fd0b656c5db successfully destroyed container for instance 39c17cc8-961e-4168-87aa-4fc4ee61f868
 ```   
 
 As you can see, the logs show the results of the execution of `my_task.sh`
@@ -134,7 +140,19 @@ As you can see, the logs show the results of the execution of `my_task.sh`
 
 Take a look at the example below:
 
+![](https://github.com/rm511130/02-14-2019-CF-Tasks/blob/master/tasks_commands.png)
 
 
+**8. And you can also run tasks from Apps Manager**
+
+![]()
+
+
+
+![]()
+
+
+
+![]()
 
 
