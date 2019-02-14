@@ -145,14 +145,22 @@ Take a look at the example below:
 
 **8. And you can also run tasks from Apps Manager**
 
-![]()
+Go to the `Tasks` tab of Apps Manager and click on `Run Task`, then follow the example shown below:
+
+![](https://github.com/rm511130/02-14-2019-CF-Tasks/blob/master/AppsManChessTask1.png)
+
+Once the Task has been started, you should be able to see its state:
+
+![](https://github.com/rm511130/02-14-2019-CF-Tasks/blob/master/AppsManChessTask2.png)
+
+Once the Task has been completed, it's container is destroyed.
+
+![](https://github.com/rm511130/02-14-2019-CF-Tasks/blob/master/AppsManChessTask3.png)
 
 
 
-![]()
+## Congratulations, you just completed another Lab.
 
 
-
-![]()
 
 
